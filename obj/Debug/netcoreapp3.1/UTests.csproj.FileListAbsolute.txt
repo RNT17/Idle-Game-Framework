@@ -1,0 +1,13 @@
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.exe
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.deps.json
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.runtimeconfig.json
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.runtimeconfig.dev.json
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.dll
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.pdb
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.csprojAssemblyReference.cache
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.AssemblyInfoInputs.cache
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.AssemblyInfo.cs
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.csproj.CoreCompileInputs.cache
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.dll
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.pdb
+C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.genruntimeconfig.cache
