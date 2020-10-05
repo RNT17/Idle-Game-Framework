@@ -1,3 +1,5 @@
+using System;
+
 public class Helper 
 {
         private string name = "unnamed helper";
@@ -11,16 +13,26 @@ public class Helper
 
         public Helper(string name, string description, int baseCost, int productionValue)
         {
-            
+            this.name = name;
+            this.description = description;
+            this.baseCost = baseCost;
+            this.productionValue = productionValue;
         }
 
         void OnItemBought ()
         {
-
+            this.quantity++;
+            this.buyPrice = this.CalculatePrice();
         }
 
         int CalculatePrice ()
         {
+            if (this.quantity == 0)
+                return this.baseCost;
+            var multiplier = 1.09; //TODO: Move this to a global            
+            var price = this.baseCost * Math.Pow(multiplier, this.quantity);
+            
+            //return Math.Ceiling(price); //The Math.ceil() function returns the smallest integer greater than or equal to a given number.
             return 0;
         }
 }
