@@ -9,13 +9,13 @@ public class Idlegfw
     App app;
     bool isUpdating = false;
 
-    private static System.Timers.Timer aTimer;
+    private static Timer aTimer;
 
     public Idlegfw()
     {
         app = new App();
 
-        aTimer = new System.Timers.Timer(1000);
+        aTimer = new Timer(1000);
         aTimer.Elapsed += loop;
         aTimer.AutoReset = true;
         aTimer.Enabled = true;
@@ -27,6 +27,7 @@ public class Idlegfw
     void loop(object sender, ElapsedEventArgs e)
     {
         Console.WriteLine("Rodando: "+ e.SignalTime);
+
         updateLogic();
         app.game.CalculateTotalProductionValue();
     }
@@ -56,11 +57,11 @@ public class Idlegfw
         }
     }
 
-    // void PlayAreaOnClick()
-    // {
-    //     //resourceManager.Produce(app.game.resourceGeneratedPerClick);
-    //     //UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
-    //     app.totalAmountOfClicks++;
-    // }
+    void PlayAreaOnClick()
+    {
+        resourceManager.Produce(app.game.resourceGeneratedPerClick);
+        //UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
+        app.totalAmountOfClicks++;
+    }
 
 }
