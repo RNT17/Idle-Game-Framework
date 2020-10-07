@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj": {}
+    "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\UTests.csproj": {}
   },
   "projects": {
-    "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj": {
+    "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\UTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj",
+        "projectUniqueName": "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\UTests.csproj",
         "projectName": "UTests",
-        "projectPath": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj",
-        "packagesPath": "C:\\Users\\RenatoSantos\\.nuget\\packages\\",
-        "outputPath": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\obj\\",
+        "projectPath": "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\UTests.csproj",
+        "packagesPath": "C:\\Users\\grupomateus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\RenatoSantos\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\grupomateus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,6 +37,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
