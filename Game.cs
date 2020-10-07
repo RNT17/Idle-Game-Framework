@@ -5,20 +5,22 @@ public class Game
 {
     public List<Helper> helpers = new List<Helper>();
     public int currentProductionValue = 0; // Acumulado de valor de produção de todos os helpers
-    public int productionValue = 1; // recurso gerado por click -> TODO: mudar tudo para resourceGeneratedPerClick 
+    public int resourceGeneratedPerClick = 1; // recurso gerado por click -> TODO: mudar tudo para resourceGeneratedPerClick 
+
     public int buyPrice = 10;
 
     private int baseCost = 10;
+    
     private int quantity = 1;
 
     /**
-    * After the framework have checked if the player has enough money to upgrade productionValue Game
-    * the method OnProductionValueUpgraded is called. It them acts as necessary.
-    * The default behavior is to add +1 to productionValue and +1 to quantity and upgrade its price.
+    * After the framework have checked if the player has enough money to upgrade resourceGeneratedPerClick Game
+    * the method OnResourceGeneratedPerClickUpgraded is called. It them acts as necessary.
+    * The default behavior is to add +1 to resourceGeneratedPerClick and +1 to quantity and upgrade its price.
     */
-    public void OnProductionValueUpgraded()
+    public void OnResourceGeneratedPerClickUpgraded()
     {
-        this.productionValue += 1;
+        this.resourceGeneratedPerClick += 1;
         this.quantity++;
         this.buyPrice = this.CalculatePrice();
     }

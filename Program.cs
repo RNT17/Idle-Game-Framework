@@ -1,12 +1,7 @@
-﻿using System;
-
-namespace UTests
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        Idlegfw idleGame = new Idlegfw();
     }
 }

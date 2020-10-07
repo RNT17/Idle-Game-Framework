@@ -1,33 +1,39 @@
 using System;
 using System.Diagnostics;
+using System.Timers;
 
 public class Idlegfw
 {
     ResourceManager resourceManager = new ResourceManager();
+    
     App app;
     bool isUpdating = false;
+
+    private static System.Timers.Timer aTimer;
 
     public Idlegfw()
     {
         app = new App();
-        loop();
+
+        aTimer = new System.Timers.Timer(1000);
+        aTimer.Elapsed += loop;
+        aTimer.AutoReset = true;
+        aTimer.Enabled = true;
+
+        Console.WriteLine("Press the Enter key to exit the program at any time... ");
+        Console.ReadLine();
     }
 
-    void loop()
+    void loop(object sender, ElapsedEventArgs e)
     {
-        Stopwatch sw = new Stopwatch();
-        sw.Start();
-
-        while (sw.Elapsed < TimeSpan.FromSeconds(1)) 
-        {
-            updateLogic();
-            app.game.CalculateTotalProductionValue();
-        }
+        Console.WriteLine("Rodando: "+ e.SignalTime);
+        updateLogic();
+        app.game.CalculateTotalProductionValue();
     }
 
     void updateLogic () 
     {
-        resourceManager.Produce(app.game.currentProductionValue);
+        //resourceManager.Produce(app.game.currentProductionValue);
     }
 
     void OnItemBought(Helper helper)
@@ -47,13 +53,14 @@ public class Idlegfw
                 
                 //app.achievementManager.onNotify<App>(app, Event.BuyHelper); // buy achievement
             } 
-        } 
+        }
     }
 
-    void PlayAreaOnClick()
-    {
-        resourceManager.Produce(app.game.productionValue);
-        //UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
-        app.totalAmountOfClicks++;
-    }
+    // void PlayAreaOnClick()
+    // {
+    //     //resourceManager.Produce(app.game.resourceGeneratedPerClick);
+    //     //UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
+    //     app.totalAmountOfClicks++;
+    // }
+
 }

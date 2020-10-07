@@ -11,6 +11,8 @@ public class App
     {
         Console.WriteLine("App Was Created!");
 
+        game = new Game();
+        
         helperManager = new HelperManager();
         helperManager.InitHelpers();
     }
