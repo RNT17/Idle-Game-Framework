@@ -11,3 +11,16 @@ C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreap
 C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.dll
 C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.pdb
 C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.genruntimeconfig.cache
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\UTests.exe
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\UTests.deps.json
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\UTests.runtimeconfig.json
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\UTests.runtimeconfig.dev.json
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\UTests.dll
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\UTests.pdb
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.csprojAssemblyReference.cache
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.AssemblyInfoInputs.cache
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.AssemblyInfo.cs
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.csproj.CoreCompileInputs.cache
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.dll
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.pdb
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.genruntimeconfig.cache

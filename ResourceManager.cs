@@ -1,3 +1,4 @@
+using System;
 /**
  * ResourceManager
  * It manages the reource generation and its use.
@@ -9,23 +10,19 @@
  */
 public class ResourceManager
 {
-
-    int coins;
-    int maxCoins;
-
-    public ResourceManager()
+    public int coins;
+    public int maxCoins;
+    
+    public ResourceManager(int coins = 0, int maxCoins = 0)
     {
-        
-    }
-
-    public ResourceManager(int coins, int maxCoins)
-    {
-        if (coins < 0) coins = 0;
-        
-        if (maxCoins < 0) maxCoins = 0;
-
         this.coins = coins;
         this.maxCoins = maxCoins;
+
+        if (coins < 0)
+            this.coins = 0;
+
+        if (maxCoins < 0)
+            this.maxCoins = 0;
     }
 
     /**
@@ -33,10 +30,12 @@ public class ResourceManager
      * then returns the current quantity of coins.
      * @param {int} value 
      */
-    int Produce (int value)
+    public int Produce (int value)
     {
         if (value <= 0) return this.coins;
-            this.coins += value;
+
+        this.coins += value;
+
         if (this.coins > this.maxCoins)
             this.maxCoins = this.coins;
         
@@ -47,16 +46,18 @@ public class ResourceManager
      * Returns true if it is able to spend the value, false otherwise
      * @param {int} value 
      */
-    bool Spend (int value)
+    public bool Spend (int value)
     {
         bool spent = false;
-        if (value <= 0) 
-            return spent;
+
+        if (value <= 0) return spent;
+
         if (this.coins >= value)
         {
-            //this.coins = System.Math.Floor(this.coins - value);
+            this.coins = (int) MathF.Floor(this.coins - value);
             spent = true;            
         }
+        
         return spent;
     }
 }

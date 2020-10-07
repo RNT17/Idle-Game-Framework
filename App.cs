@@ -1,7 +1,17 @@
+using System;
+
 public class App 
 {
-    int totalAmountOfClicks = 0;
+    public Game game;
+    public HelperManager helperManager { get; set; }
+    public AchievementManager achievementManager;
+    public int totalAmountOfClicks { get; set; }
+    
+    public App()
+    {
+        Console.WriteLine("App Was Created!");
 
-    HelperManager helperManager = new HelperManager();
-    //helperManager.InitHelpers();
+        helperManager = new HelperManager();
+        helperManager.InitHelpers();
+    }
 }
