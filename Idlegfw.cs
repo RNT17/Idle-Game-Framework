@@ -4,12 +4,13 @@ using System.Timers;
 
 public class Idlegfw
 {
-    ResourceManager resourceManager = new ResourceManager();
-    
+    ResourceManager resourceManager = new ResourceManager();       
     App app;
     bool isUpdating = false;
 
     private static Timer aTimer;
+
+    event EventHandler OnClickEventEnter;
 
     public Idlegfw()
     {
@@ -20,21 +21,29 @@ public class Idlegfw
         aTimer.AutoReset = true;
         aTimer.Enabled = true;
 
-        Console.WriteLine("Press the Enter key to exit the program at any time... ");
-        Console.ReadLine();
+        Console.WriteLine("Press the ENTER key to exit the program at any time... ");
+        while (true)
+        {
+            if(Console.ReadKey(true).KeyChar == 'a')
+                Console.WriteLine("Total Production Value: {0} ", app.game.currentProductionValue);
+            else if (Console.ReadKey(true).KeyChar == 's')
+                Console.WriteLine("Resource Generated Per Click: {0} ", app.game.resourceGeneratedPerClick);
+        }
     }
 
     void loop(object sender, ElapsedEventArgs e)
     {
-        Console.WriteLine("Rodando: "+ e.SignalTime);
+        Console.Write("Rodando: {0} ", e.SignalTime);
+        Console.WriteLine("Coins: " + resourceManager.coins);
 
         updateLogic();
         app.game.CalculateTotalProductionValue();
+
     }
 
     void updateLogic () 
     {
-        //resourceManager.Produce(app.game.currentProductionValue);
+        resourceManager.Produce(app.game.currentProductionValue);
     }
 
     void OnItemBought(Helper helper)
@@ -64,4 +73,5 @@ public class Idlegfw
         app.totalAmountOfClicks++;
     }
 
+    
 }
