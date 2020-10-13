@@ -12,38 +12,33 @@ public class AchievementManager
         Achievement tenClicks = new Achievement(
             "Wowie! 10 whole clicks!", 
             "You've clicked the big button 10 times. Well done. Well done indeed.", 
-            MyEventArs.AmountOfClicks,
-            10);
+            new MyEventArs(MyEventArs.AmountOfClicks, 10));
 
         Achievement fiftyClicks = new Achievement(
             "Wowie! 50 whole clicks!", 
             "You've clicked the big button 50 times. Well done!", 
-            MyEventArs.AmountOfClicks,
-            50);
+            new MyEventArs(MyEventArs.AmountOfClicks,50));
 
         Achievement firstHelperBuy = new Achievement(
             "Nice, you buy a Helper!", 
             "You've buy a nice Helper. Congrat's!", 
-            MyEventArs.BuyHelper,
-            1);
+            new MyEventArs(MyEventArs.BuyHelper,1));
         
         Achievement moreThenOneHelperBuy = new Achievement(
             "You buy 10 Helper's!", 
             "You've got 10 Helper's. That's awelsome!", 
-            MyEventArs.BuyHelper,
-            10);
+            new MyEventArs(MyEventArs.BuyHelper,10));
 
         Achievement spendTenResource = new Achievement(
             "Spend 10 in Resource!", 
             "You've Spend a Resource to buy somenthing!", 
-            MyEventArs.SpendResource,
-            10);
+            new MyEventArs(MyEventArs.SpendResource,10));
 
         achievements.Add(tenClicks);
         achievements.Add(fiftyClicks);
         achievements.Add(firstHelperBuy);
-        achievements.Add(moreThenOneHelperBuy);
-        achievements.Add(spendTenResource);
+        //achievements.Add(moreThenOneHelperBuy);
+        //achievements.Add(spendTenResource);
     }
 
     // TODO: Event Handler
@@ -60,8 +55,9 @@ public class AchievementManager
     {
         foreach (var achievement in achievements)
         {
-            //Console.WriteLine("Evento: {0}\nQuantity: {1}", e.Evento, e.Quantity);
-            if (achievement.Evento == e.Evento && achievement.Quantity == e.Quantity)
+            // Console.WriteLine("Evento: {0}\nQuantity: {1}", e.Type, e.Quantity);
+            // Console.WriteLine("Achievement: {0}\nQuantity: {1}", achievement.MEventArgs.Type, achievement.MEventArgs.Quantity);
+            if (achievement.MEventArgs.Type == e.Type && achievement.MEventArgs.Quantity == e.Quantity)
                 return achievement;
         }
         return null;

@@ -6,11 +6,13 @@ public class Achievement
     private string desc; 
     private int evento; 
     private int quantity;
+    private MyEventArs mEventArgs;
 
     public string Name { get => name; }
     public string Desc { get => desc; }
     public int Evento { get => evento; }
     public int Quantity { get => quantity; }
+    public MyEventArs MEventArgs { get => mEventArgs; }
 
     public Achievement (string name, string desc, int evento, int quantity) 
     {
@@ -18,6 +20,14 @@ public class Achievement
         this.desc = desc;
         this.evento = evento;
         this.quantity = quantity;
+        // passive effects
+    }
+
+    public Achievement (string name, string desc, MyEventArs mEventArgs) 
+    {
+        this.name = name;
+        this.desc = desc;
+        this.mEventArgs = mEventArgs;
         // passive effects
     }
 

@@ -8,6 +8,7 @@ This document keeps track of what must be done and in which order.
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);
 - [ ] Create basic status to improve resource production by X%.
+- [ ] 
 
 ## Advanced 
 

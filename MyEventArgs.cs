@@ -4,12 +4,12 @@ public class MyEventArs
     public readonly static int BuyHelper = 1;
     public readonly static int SpendResource = 2;
 
-    public MyEventArs(int evento, int quantity)
+    public MyEventArs(int type, int quantity)
     {   
-        this.Evento = evento;
+        this.Type = type;
         this.Quantity = quantity;
     }
 
-    public int Evento {get;}
+    public int Type {get;}
     public int Quantity {get;}
 }

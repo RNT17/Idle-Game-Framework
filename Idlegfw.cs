@@ -46,10 +46,10 @@ public class Idlegfw
     void FixedUpdate(object sender, ElapsedEventArgs e)
     {
         Console.Write("Rodando: {0} ", e.SignalTime);
-        UpdateCoinsCount();
 
         updateLogic();
         app.game.CalculateTotalProductionValue();
+        UpdateCoinsCount();
     }
 
     void updateLogic () 
@@ -88,7 +88,7 @@ public class Idlegfw
     void UpdateCoinsCount()
     {
         //UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
-        Console.WriteLine("Coins: " + resourceManager.coins);       
+        Console.WriteLine("Coins: {0} | Clicks: {1} ", resourceManager.coins, app.totalAmountOfClicks);       
     }
     
 }
