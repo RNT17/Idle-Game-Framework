@@ -5,7 +5,7 @@ public class App
     public Game game;
     public HelperManager helperManager { get; set; }
     public AchievementManager achievementManager;
-    public int totalAmountOfClicks { get; set; }
+    public int totalAmountOfClicks;
     
     public App()
     {
@@ -15,5 +15,8 @@ public class App
         
         helperManager = new HelperManager();
         helperManager.InitHelpers();
+
+        achievementManager = new AchievementManager();
+        achievementManager.InitAchievement();
     }
 }

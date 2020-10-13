@@ -28,7 +28,7 @@ public class Helper
         this.quantity++;
         this.buyPrice = this.CalculatePrice();
 
-        DebugHelper();
+        //DebugHelper();
     }    
 
     void DebugHelper()

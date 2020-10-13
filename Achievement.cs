@@ -35,4 +35,9 @@ public class Achievement
             " " + this.desc
         );
     }   
+
+    public void Details()
+    {
+        Console.WriteLine("Name: {0}\nDesc: {1}\nEvento: {2}\nQuantity: {3}", this.name, this.desc, this.evento, this.quantity);
+    }
 }

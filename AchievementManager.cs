@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 public class AchievementManager
 {
     List<Achievement> achievements = new List<Achievement>();    
@@ -27,8 +28,8 @@ public class AchievementManager
             1);
         
         Achievement moreThenOneHelperBuy = new Achievement(
-            "You buy a new Helper!", 
-            "You've purchase another Helper!", 
+            "You buy 10 Helper's!", 
+            "You've got 10 Helper's. That's awelsome!", 
             MyEventArs.BuyHelper,
             10);
 
@@ -39,21 +40,35 @@ public class AchievementManager
             10);
 
         achievements.Add(tenClicks);
-        // achievements.Add(fiftyClicks);
+        achievements.Add(fiftyClicks);
         achievements.Add(firstHelperBuy);
-        // achievements.Add(moreThenOneHelperBuy);
+        achievements.Add(moreThenOneHelperBuy);
         achievements.Add(spendTenResource);
     }
 
     // TODO: Event Handler
-    void  OnNotity()
+    public void OnNotity(object sender, MyEventArs e)
     {
-
+        Console.WriteLine("Sender: {0} \nMyEventsArgs: {1} ", sender.GetType().ToString(), e.GetType().ToString());
+        Unlock(ValidateAchievement(e));
     }
 
-    private void unlock(Achievement achievement)
+    // TODO: verificar se conquista é válida
+    // 1 - Existe na lista de conquista cadastrada
+    // 2 - Quantidade é a mesma de conquisata cadastrada
+    Achievement ValidateAchievement(MyEventArs e)
     {
-        achievement.Unlocked();
+        foreach (var achievement in achievements)
+        {
+            //Console.WriteLine("Evento: {0}\nQuantity: {1}", e.Evento, e.Quantity);
+            if (achievement.Evento == e.Evento && achievement.Quantity == e.Quantity)
+                return achievement;
+        }
+        return null;
     }
 
+    private void Unlock(Achievement achievement)
+    {
+        achievement?.Unlocked();
+    }
 }
