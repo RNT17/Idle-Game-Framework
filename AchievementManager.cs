@@ -44,7 +44,7 @@ public class AchievementManager
     // TODO: Event Handler
     public void OnNotity(object sender, MyEventArs e)
     {
-        Console.WriteLine("Sender: {0} \nMyEventsArgs: {1} ", sender.GetType().ToString(), e.GetType().ToString());
+        //Console.WriteLine("Sender: {0} \nMyEventsArgs: {1} ", sender.GetType().ToString(), e.GetType().ToString());
         Unlock(ValidateAchievement(e));
     }
 

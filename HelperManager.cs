@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class HelperManager
@@ -54,5 +55,21 @@ public class HelperManager
         this.currentProductionValue = acumulator;
         
         return this.currentProductionValue;
+    }
+
+    public void DebugerHelpers()
+    {
+        foreach (var helper in helpers)
+        {
+            Console.WriteLine(
+                "Helpers: \n"
+            );
+            
+            helper.DebugHelper();
+
+            Console.WriteLine(
+                "======================\n"
+            );
+        }
     }
 }

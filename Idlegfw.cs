@@ -1,6 +1,17 @@
 using System;
 using System.Timers;
 
+/**
+    Classe responsável por manipular e disparar eventos
+
+    Entradas para visuazação de ações:
+    Use: a to Produce Currencies.
+    Use: b to buy a Helper.
+    Use: 1 to see Stats.
+    Use: 2 to see Helpers active.
+
+**/
+
 public class Idlegfw
 {
     ResourceManager resourceManager = new ResourceManager();       
@@ -27,29 +38,49 @@ public class Idlegfw
         OnClickEventEnter += PlayAreaOnClick;
         OnNotifyAchievement += app.achievementManager.OnNotity;
 
-        Console.WriteLine("Press the Ctrl + C to exit the program at any time... ");
+        Console.WriteLine("Press the Ctrl + C to exit the program at any time or h to see helper... ");
         while (true) 
         {
             if (Console.ReadKey(true).KeyChar == 'a') {
                 OnClickEventEnter?.Invoke(this, EventArgs.Empty);
                 OnNotifyAchievement?.Invoke(app, new MyEventArs(MyEventArs.AmountOfClicks, app.totalAmountOfClicks));
             }
+
             else if (Console.ReadKey(true).KeyChar == 'b')
                 OnItemBought(app.helperManager.helpers[0]);
-            else if(Console.ReadKey(true).KeyChar == '1')
-                Console.WriteLine("Total Production Value: {0} ", app.game.currentProductionValue);
-            else if (Console.ReadKey(true).KeyChar == '2')
-                Console.WriteLine("Resource Generated Per Click: {0} ", app.game.resourceGeneratedPerClick);
+
+            else if (Console.ReadKey(true).KeyChar == 'h')
+                Console.WriteLine(
+                    "Use: a to Produce Currencies.\n" +
+                    "Use: b to buy a Helper.\n" +
+                    "Use: 1 to see Stats\n" +
+                    "Use: 2 to see Helpers to by."
+                );
+
+            else if (Console.ReadKey(true).KeyChar == '1')
+                Console.WriteLine(
+                    "======================\n"+
+                    "Coins: {0}\nMax Cois: {1}\nResource Generated Per Click: {2}\nTotal Production Value: {3}\nHelpers: {4}\n"+
+                    "======================",
+                resourceManager.coins,
+                resourceManager.maxCoins,
+                app.game.currentProductionValue,
+                app.game.resourceGeneratedPerClick,
+                app.game.helpers.Count
+                );
+
+            else if (Console.ReadKey(true).KeyChar == '2')               
+                app.helperManager.DebugerHelpers();
         }
     }
 
     void FixedUpdate(object sender, ElapsedEventArgs e)
     {
-        Console.Write("Rodando: {0} ", e.SignalTime);
+        //Console.Write("Rodando: {0} ", e.SignalTime);
 
         updateLogic();
         app.game.CalculateTotalProductionValue();
-        UpdateCoinsCount();
+        //UpdateCoinsCount();
     }
 
     void updateLogic () 
@@ -59,7 +90,6 @@ public class Idlegfw
 
     void OnItemBought(Helper helper)
     {
-        //Console.WriteLine("OnItemBought");
         if(resourceManager.Spend(helper.buyPrice))
         {
             OnNotifyAchievement?.Invoke(resourceManager, new MyEventArs(MyEventArs.SpendResource, helper.buyPrice)); // Spend Resource
