@@ -5,6 +5,7 @@ This document keeps track of what must be done and in which order.
 - [x] Player click to play-area should count clicks and increment coins;
 - [x] Load sample helpers to screen. A helper should display: name, buy price, current quantity, current total production, production per piece. Should behave: it can be bought;
 - [x] Implement basic image representation for helpers;
+- [ ] Implementar OnUpgrade or OnLevelUp em helpers;
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);
 - [ ] Create basic status to improve resource production by X%.
@@ -40,6 +41,13 @@ Events are useful to play audio, display animations, etc
 **In depth Description:** Player (clicks) on the buy button for a helper/cursor. The helper list was created by the App and has a handler to dispatch a custom OnItemBought event on click.
 The OnItemBought is then handled by the Idlegfw that (verifies) if the player has enough resource to buy the helper. If the player has enough then the OnItemBought method is called in the helper.
 
+### Upgrade Helper
+
+**Action:** Player Upgrade Helper
+**Simplified flow:** Player -> (Upgrade Helper) -> (SpendResource) => [OnUpgrade||OnLevelUp/resourceSpent]
+**In depth Description:**  Jogador seleciona o helper que deseja fazer a melhoria. App tem um manipulador que dispara um evento OnUpgrade/OnLevelUp. OnUpgrade/OnLevelUp é manipulado pelo **Idlegfw** que verifica se o jogador tem recurso suficiente para fazer o upgrade do helper. 
+Se o jogador tem recurso, então OnUpgrade/OnLevelUp é chamado no helper.
+
 ## Responsibilities 
 
 Idlegfw.cs is responsible for handling events fired by the Game, loading configs and saving/loading the state of the game.
@@ -69,3 +77,14 @@ var options = {
 var status = statusManager.createStatus(options);
 statusManager.toApplyList.push(status);
 ```
+
+### Exemplo de Upgrade
+
+Helper Descrição: Ivan, O lutador, productionValue: 100 -> 200 Upgraded
+Upgrade Descricao: Copo de Cerveja, Efeito: Aumenta o DPS de Ivan, O lutador em 100%.
+
+Helper Decrição: Alexa, Assassina, productionValue: 200 -> 300 Upgraded (500%)
+Upgrade Descricao: Golpe crítico, Efeito: Aumenta sua chande de toque crítico em 50%
+
+Helper Descrição: Rei Midas, productionValue: 500 -> 
+Upgrade Descricao: Saco sem fundo, Efeito: Aumenta todo ouro encontrado em 25%.
