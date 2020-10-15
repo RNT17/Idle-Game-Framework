@@ -37,7 +37,6 @@ public class HelperManager
     /**
      * Calculates the total production value based on the 
      * current production value of each helper
-     * TODO: trocar Aggregate por um loop em helpers
      */
     int CalculateTotalProductionValue ()
     {
