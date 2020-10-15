@@ -3,7 +3,7 @@ using System;
 
 public class UTests
 {
-    // ========== Fact ===========//
+    //========== Fact ===========//
     // [Fact]
     // public void PassingTest()
     // {
@@ -21,7 +21,7 @@ public class UTests
     //     return x + y;
     // }
 
-    // ========== Theory ===========//
+    // //========== Theory ===========//
 
     // [Theory]
     // [InlineData(3)]
