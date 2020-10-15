@@ -8,7 +8,7 @@ using System.Timers;
     Use: a to Produce Currencies.
     Use: b to buy a Helper.
     Use: 1 to see Stats.
-    Use: 2 to see Helpers active.
+    Use: 2 to see Helpers to buy.
 
 **/
 
@@ -38,6 +38,11 @@ public class Idlegfw
         OnClickEventEnter += PlayAreaOnClick;
         OnNotifyAchievement += app.achievementManager.OnNotity;
 
+        UserInput();
+    }
+
+    void UserInput()
+    {
         Console.WriteLine("Press the Ctrl + C to exit the program at any time or h to see helper... ");
         while (true) 
         {
@@ -47,14 +52,14 @@ public class Idlegfw
             }
 
             else if (Console.ReadKey(true).KeyChar == 'b')
-                OnItemBought(app.helperManager.helpers[0]);
+                BuyAHelper();
 
             else if (Console.ReadKey(true).KeyChar == 'h')
                 Console.WriteLine(
                     "Use: a to Produce Currencies.\n" +
                     "Use: b to buy a Helper.\n" +
                     "Use: 1 to see Stats\n" +
-                    "Use: 2 to see Helpers to by."
+                    "Use: 2 to see Helpers to by\n" 
                 );
 
             else if (Console.ReadKey(true).KeyChar == '1')
@@ -121,4 +126,28 @@ public class Idlegfw
         Console.WriteLine("Coins: {0} | Clicks: {1} ", resourceManager.coins, app.totalAmountOfClicks);       
     }
     
+    void BuyAHelper()
+    {
+        Console.WriteLine("Choose a helper:");
+
+        ConsoleKeyInfo UserInput = Console.ReadKey();
+        int helperId = int.Parse(UserInput.KeyChar.ToString());
+
+        Console.WriteLine(helperId);
+        if (app.helperManager.helpers.Count > 0)
+            OnItemBought(app.helperManager.helpers[helperId]);
+    }
+
+    /**
+        Metodo responsável por fazer upgrade em helper
+        Se existir recurso suficiente, chamar OnUpgrade em Helper.
+    */
+    void OnUpgrade(Helper helper)
+    {
+        if(resourceManager.Spend(helper.Upgrade.BuyCost))
+        {
+            helper.OnUpgrade();
+        }
+    }
+
 }

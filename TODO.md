@@ -47,7 +47,7 @@ The OnItemBought is then handled by the Idlegfw that (verifies) if the player ha
 **Action:** Player Upgrade Helper
 **Simplified flow:** Player -> (Upgrade Helper) -> (SpendResource) => [OnUpgrade||OnLevelUp/resourceSpent]
 **In depth Description:**  Jogador seleciona o helper que deseja fazer a melhoria. App tem um manipulador que dispara um evento OnUpgrade/OnLevelUp. OnUpgrade/OnLevelUp é manipulado pelo **Idlegfw** que verifica se o jogador tem recurso suficiente para fazer o upgrade do helper. 
-Se o jogador tem recurso, então OnUpgrade/OnLevelUp é chamado no helper.
+Se o jogador tem recurso, então OnUpgrade/OnLevelUp é chamado no helper. Função aumenta (em porcentagens) a quantidade de recursos produzidos.
 
 ## Responsibilities 
 
@@ -82,10 +82,22 @@ statusManager.toApplyList.push(status);
 ### Exemplo de Upgrade
 
 Helper Descrição: Ivan, O lutador, productionValue: 100 -> 200 Upgraded
-Upgrade Descricao: Copo de Cerveja, Efeito: Aumenta o DPS de Ivan, O lutador em 100%.
+Upgrade: 
+    Descricao: Copo de Cerveja 
+    Efeito: Aumenta o DPS de Ivan, O lutador em 100%
+    Valor do efeito: 100 (100%)
+    Custo: 100 Coins
 
 Helper Decrição: Alexa, Assassina, productionValue: 200 -> 300 Upgraded (500%)
-Upgrade Descricao: Golpe crítico, Efeito: Aumenta sua chande de toque crítico em 50%
+Upgrade:
+    Descricao: Golpe crítico 
+    Efeito: Aumenta sua chande de toque crítico em 50%
+    Valor do efeito: 50 (100%)
+    Custo: 200 Coins
 
 Helper Descrição: Rei Midas, productionValue: 500 -> 
-Upgrade Descricao: Saco sem fundo, Efeito: Aumenta todo ouro encontrado em 25%.
+Upgrade:
+    Descricao: Saco sem fundo 
+    Efeito: Aumenta todo ouro encontrado em 25%
+    Valor do efeito: 25 (100%)
+    Custo: 500 Coins

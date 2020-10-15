@@ -11,6 +11,10 @@ public class Helper
     public bool isUnique = false;        
     public int level = 1;
     public int quantity = 0;
+    public int nextLevelPrice = 100;
+
+    private Upgrade upgrade;
+    public Upgrade Upgrade { get; set; }
 
     public Helper (
         string name = "unnamed helper", 
@@ -28,12 +32,10 @@ public class Helper
         canEvolve: false, //remove?
         needItem: false, //remove?
         itemNeeded: [], //remove?        
-        nextLevelPrice: 100,
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
         */
-
-    }
+    }  
 
     public void OnItemBought ()
     {
@@ -55,6 +57,11 @@ public class Helper
     }
 
     public void OnLevelUp ()
+    {
+        Console.WriteLine("Idle Game Framework: Function not implemented");
+    }
+
+    public void OnUpgrade()
     {
         Console.WriteLine("Idle Game Framework: Function not implemented");
     }
