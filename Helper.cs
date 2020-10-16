@@ -11,7 +11,6 @@ public class Helper
     public bool isUnique = false;        
     public int level = 1;
     public int quantity = 0;
-    public int nextLevelPrice = 100;
 
     private Upgrade upgrade;
     public Upgrade Upgrade { get; set; }
@@ -32,8 +31,9 @@ public class Helper
         canEvolve: false, //remove?
         needItem: false, //remove?
         itemNeeded: [], //remove?        
-        requiredLevel: 0, //required player's level to unlock this specific helper
-        unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
+        public int nextLevelPrice = 10;
+        requiredLevel: 10, //required player's level to unlock this specific helper
+        this.unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
         */
     }  
 

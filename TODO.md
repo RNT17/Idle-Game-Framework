@@ -46,7 +46,8 @@ The OnItemBought is then handled by the Idlegfw that (verifies) if the player ha
 
 **Action:** Player Upgrade Helper
 **Simplified flow:** Player -> (Upgrade Helper) -> (SpendResource) => [OnUpgrade||OnLevelUp/resourceSpent]
-**In depth Description:**  Jogador seleciona o helper que deseja fazer a melhoria. App tem um manipulador que dispara um evento OnUpgrade/OnLevelUp. OnUpgrade/OnLevelUp é manipulado pelo **Idlegfw** que verifica se o jogador tem recurso suficiente para fazer o upgrade do helper. 
+**In depth Description:**  Jogador seleciona o helper que deseja fazer a melhoria se este estiver em um nivel mínimo para isso. 
+App tem um manipulador que dispara um evento OnUpgrade/OnLevelUp. OnUpgrade/OnLevelUp é manipulado pelo **Idlegfw** que verifica se o jogador tem recurso suficiente para fazer o upgrade do helper. 
 Se o jogador tem recurso, então OnUpgrade/OnLevelUp é chamado no helper. Função aumenta (em porcentagens) a quantidade de recursos produzidos.
 
 ## Responsibilities 

@@ -6931,26 +6931,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\grupomateus\\.nuget\\packages\\": {}
+    "C:\\Users\\RenatoSantos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\UTests.csproj",
+      "projectUniqueName": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj",
       "projectName": "UTests",
-      "projectPath": "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\UTests.csproj",
-      "packagesPath": "C:\\Users\\grupomateus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grupomateus\\Documents\\Pasta Pessoal\\Projects\\UTests\\obj\\",
+      "projectPath": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj",
+      "packagesPath": "C:\\Users\\RenatoSantos\\.nuget\\packages\\",
+      "outputPath": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\grupomateus\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\RenatoSantos\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
