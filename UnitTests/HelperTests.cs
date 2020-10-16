@@ -81,4 +81,13 @@ public class HelpersTest
         Assert.Equal(expected, result);
     }
 
+    [Fact]
+    public void OnUpgrade_SpendResouce()
+    {
+        var helper = new Helper(); // Production value is 1
+        helper.upgrade = new Upgrade(); // Default Requires Level to Unlock is 10
+        helper.upgrade.effect = 100;
+        helper.upgrade.SetUnlocked(10); // Set level 10 required to Unlock the Upgrade (Upgrade is default false)
+    }
+
 }

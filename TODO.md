@@ -5,11 +5,10 @@ This document keeps track of what must be done and in which order.
 - [x] Player click to play-area should count clicks and increment coins;
 - [x] Load sample helpers to screen. A helper should display: name, buy price, current quantity, current total production, production per piece. Should behave: it can be bought;
 - [x] Implement basic image representation for helpers;
-- [ ] Implementar OnUpgrade or OnLevelUp em helpers;
+- [x] Implementar OnUpgrade em helpers;
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);
 - [ ] Create basic status to improve resource production by X%.
-- [ ] 
 
 ## Advanced 
 

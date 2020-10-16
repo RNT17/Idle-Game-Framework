@@ -38,6 +38,8 @@ public class Helper
     public void OnItemBought ()
     {
         this.quantity++;
+        this.level++; // Tratando level como item comprado ?
+        upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade
         this.buyPrice = this.CalculatePrice();
 
         //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought

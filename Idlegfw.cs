@@ -144,10 +144,10 @@ public class Idlegfw
     */
     void OnUpgrade(Helper helper)
     {
-        // if(resourceManager.Spend(helper.Upgrade.buyCost))
-        // {
-        //     helper.OnUpgrade(helper.Upgrade);
-        // }
+        if(resourceManager.Spend(helper.upgrade.buyCost))
+        {
+            helper.OnUpgrade(helper.upgrade);
+        }
     }
 
 }
