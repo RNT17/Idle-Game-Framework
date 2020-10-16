@@ -88,6 +88,8 @@ public class HelpersTest
         helper.upgrade = new Upgrade(); // Default Requires Level to Unlock is 10
         helper.upgrade.effect = 100;
         helper.upgrade.SetUnlocked(10); // Set level 10 required to Unlock the Upgrade (Upgrade is default false)
+
+        
     }
 
 }
