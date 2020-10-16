@@ -11,9 +11,7 @@ public class Helper
     public bool isUnique = false;        
     public int level = 1;
     public int quantity = 0;
-
-    private Upgrade upgrade;
-    public Upgrade Upgrade { get; set; }
+    public Upgrade upgrade;
 
     public Helper (
         string name = "unnamed helper", 
@@ -61,12 +59,20 @@ public class Helper
         Console.WriteLine("Idle Game Framework: Function not implemented");
     }
 
-    public void OnUpgrade()
+    /*
+        Depois que class Idlegfw checar que game tem recurso suficiente para fazer upgrade.
+        Chamar OnUpgrade em Helper. Aqui é feita a verificação para saber se Upgrade tem nível suficiente para
+        ativar seu efeito em Helper. Ex: Upgrade tem o poder de maximizar a produção de recurso em x%.
+    */
+    public void OnUpgrade(Upgrade upgrade)
     {
-        Console.WriteLine("Idle Game Framework: Function not implemented");
+        if (upgrade.unlocked)
+        {
+            productionValue += upgrade.effect;
+        }
     }
 
-    public void DebugHelper()
+    public void DebugHelper ()
     {
         Console.WriteLine("Name: " + this.name +
         "\nDescription: " + this.description +
@@ -87,4 +93,5 @@ public class Helper
         
         return (int) Math.Ceiling(price); //The Math.ceil() function returns the smallest integer greater than or equal to a given number.
     }
+
 }

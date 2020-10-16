@@ -18,6 +18,7 @@ public class HelperManager
         Helper playerCharacter = new Helper(
             "Hero", "A Brave Hero", 10, 1
         );
+        playerCharacter.upgrade = new Upgrade();
 
         playerCharacter.isUnique = true;
 
