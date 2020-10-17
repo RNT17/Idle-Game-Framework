@@ -135,7 +135,7 @@ public class Idlegfw
 
         Console.WriteLine(helperId);
         if (app.helperManager.helpers.Count > 0)
-            OnItemBought(app.helperManager.helpers[helperId]);
+            this.OnItemBought(app.helperManager.helpers[helperId]);
     }
 
     /**

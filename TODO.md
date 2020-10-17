@@ -5,7 +5,8 @@ This document keeps track of what must be done and in which order.
 - [x] Player click to play-area should count clicks and increment coins;
 - [x] Load sample helpers to screen. A helper should display: name, buy price, current quantity, current total production, production per piece. Should behave: it can be bought;
 - [x] Implement basic image representation for helpers;
-- [x] Implementar OnUpgrade em helpers;
+- [x] Implementar basic class OnUpgrade em helpers;
+- [ ] Create Xunit Teste and Game Tests in Upgrade logic;
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);
 - [ ] Create basic status to improve resource production by X%.
@@ -101,3 +102,10 @@ Upgrade:
     Efeito: Aumenta todo ouro encontrado em 25%
     Valor do efeito: 25 (100%)
     Custo: 500 Coins
+
+## todo
+Aplicar upgrade no game:
+criar um helper com um upgrade
+incrementar helper até este ficar com level suficiente para, dispara um evento?
+fazer alguem manipular esse evento para fazer unlock no upgrade
+comprar o upgrade e verificar seu efeito;

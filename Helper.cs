@@ -38,9 +38,10 @@ public class Helper
     public void OnItemBought ()
     {
         this.quantity++;
-        this.level++; // Tratando level como item comprado ?
-        upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade
         this.buyPrice = this.CalculatePrice();
+
+        // this.level++; // Tratando level como item comprado ?
+        // upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
 
         //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
         //var audio = new Audio(this.sounds.OnItemBought); //play audio of being bought
@@ -63,7 +64,7 @@ public class Helper
 
     /*
         Depois que class Idlegfw checar que game tem recurso suficiente para fazer upgrade.
-        Chamar OnUpgrade em Helper. Aqui é feita a verificação para saber se Upgrade tem nível suficiente para
+        Chamar OnUpgrade de Helper. Aqui é feita a verificação para saber se Upgrade está unlocked para
         ativar seu efeito em Helper. Ex: Upgrade tem o poder de maximizar a produção de recurso em x%.
     */
     public void OnUpgrade(Upgrade upgrade)
@@ -72,6 +73,11 @@ public class Helper
         {
             productionValue += upgrade.effect;
         }
+    }
+
+    public void OnUpgrade()
+    {
+
     }
 
     public void DebugHelper ()

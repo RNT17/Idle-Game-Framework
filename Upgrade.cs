@@ -9,6 +9,8 @@ public class Upgrade
     public int effect = 100;
     public int buyCost = 10;
 
+    //public EventHandler OnUpgradeEvent;
+
     public Upgrade(string name = "unnamed", string desc = "Generic Upgrade", int effect = 100, int buyCost = 10)
     {
         this.name = name;
@@ -21,11 +23,20 @@ public class Upgrade
         this.buyCost = buyCost;
     }
 
+    public Upgrade(bool unlocked)
+    {
+        this.unlocked = unlocked;
+    }
+
     public void SetUnlocked(int level)
     {
         if (requiredLevel == level)
             this.unlocked = true;
     }
 
-    
+    public void ApplyEffect(Helper helper)
+    {
+        helper.productionValue = effect;
+    }
+
 }
