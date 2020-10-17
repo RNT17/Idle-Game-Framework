@@ -57,6 +57,67 @@ public class HelperManager
         return this.currentProductionValue;
     }
 
+    /**
+     * Calculates the total production value for a specific helper 
+     * @param {string} name 
+     */
+    int CalculateTotalProductionByHelperName(string name)
+    {
+        // //return player.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
+        // return this.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
+        //     var value = 0;
+        //     if (helper.quantity >= 1)
+        //         value = helper.productionValue * helper.quantity;
+        //     return accumulator += value;
+        // }, 0);
+        return 0;
+    }
+
+    /**
+     * Verifies if the helpers array has a helper with
+     * the provided ID.
+     * @param {int} id 
+     */
+    bool HasHelperWithId (int id) 
+    {
+        var has = false;
+        if (this.helpers.Count >= 1)
+        {
+            foreach (var helper in helpers)
+            {
+                if (helper.id == id)
+                    has = true;
+            }
+        }
+
+        return has;
+    }
+
+    /**
+     * informs how many helpers with a specific ID there are in the helpers list
+     * which means: how many helpers of that ID were already bought.
+     * @param {int} id 
+     */
+    int NumberOfHelpersById (int id)
+    {
+        var count = 0;
+        foreach (var helper in helpers)
+        {
+            if (helper.id == id)
+                count++;
+        }
+        return count;
+    }
+
+    //returns the total amount that helpers of same ID will produce
+    int TotalProductionByHelperId (int id)
+    {
+        // return this.helpers.filter(helper => helper.id === id).reduce(function (accumulator, helper) {
+        //     return accumulator += helper.productionValue;
+        // }, 0);
+        return 0;
+    }
+
     public void DebugerHelpers()
     {
         foreach (var helper in helpers)

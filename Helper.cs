@@ -3,6 +3,7 @@ using System;
 // Same as Buildings
 public class Helper 
 {
+    public int id = 0;
     public string name = "unnamed helper";
     public string description = "Generic helper that produces resources";
     public int baseCost = 10; //how much it costs initially
@@ -19,6 +20,7 @@ public class Helper
         int baseCost = 10, 
         int productionValue = 1)
     {
+        this.id++;
         this.name = name;
         this.description = description;
         this.baseCost = baseCost;

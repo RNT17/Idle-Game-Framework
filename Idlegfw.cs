@@ -153,7 +153,8 @@ public class Idlegfw
         int helperId = int.Parse(UserInput.KeyChar.ToString());
 
         Console.WriteLine(helperId);
-        if (app.helperManager.helpers.Count > 0)
+        //if (app.helperManager.helpers.Count > 0)
+        if (!app.game.HasHelperWithId(helperId))
             this.OnItemBought(app.helperManager.helpers[helperId]);
     }
 

@@ -14,7 +14,7 @@ public class Game
     private int quantity = 1;
 
     /**
-    * After the framework have checked if the player has enough money to upgrade resourceGeneratedPerClick Game
+    * After the framework have checked if the player has enough money to upgrade resourceGeneratedPerClick on Game
     * the method OnResourceGeneratedPerClickUpgraded is called. It them acts as necessary.
     * The default behavior is to add +1 to resourceGeneratedPerClick and +1 to quantity and upgrade its price.
     */
@@ -48,4 +48,23 @@ public class Game
         
         return this.currentProductionValue;
     }   
+
+    /**
+     * Verifies if the helpers array has a helper with
+     * the provided ID.
+     * @param {int} id 
+     */
+    public bool HasHelperWithId (int id) 
+    {
+         var has = false;
+        if (this.helpers.Count >= 1)
+        {
+            foreach (var helper in helpers)
+            {
+                if (helper.id == id)
+                    has = true;
+            }
+        }
+        return has;
+    }
 }
