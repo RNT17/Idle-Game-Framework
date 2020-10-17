@@ -40,8 +40,9 @@ public class Helper
         this.quantity++;
         this.buyPrice = this.CalculatePrice();
 
-        // this.level++; // Tratando level como item comprado ?
-        // upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
+        // Acredito que não seja o melhor local pra fazer isso.        
+        this.level++; // Tratando level como item comprado ?
+        upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
 
         //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
         //var audio = new Audio(this.sounds.OnItemBought); //play audio of being bought
@@ -69,10 +70,14 @@ public class Helper
     */
     public void OnUpgrade(Upgrade upgrade)
     {
-        if (upgrade.unlocked)
+        if (!upgrade.unlocked)
         {
-            productionValue += upgrade.effect;
+            Console.WriteLine("Upgrade is locked!\nRequired level: {0}", upgrade.requiredLevel);
+            return;
         }
+
+        productionValue += upgrade.effect;
+        Console.WriteLine("Upgraded sucessfull!");
     }
 
     public void OnUpgrade()

@@ -18,7 +18,7 @@ public class HelperManager
         Helper playerCharacter = new Helper(
             "Hero", "A Brave Hero", 10, 1
         );
-        playerCharacter.upgrade = new Upgrade();
+        playerCharacter.upgrade = new Upgrade("Copo de Cerveja", "Aumenta o DPS de Ivan, O lutador em 100%", 100);
 
         playerCharacter.isUnique = true;
 

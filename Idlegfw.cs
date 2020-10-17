@@ -1,5 +1,6 @@
 using System;
 using System.Timers;
+using System.Collections.Generic;
 
 /**
     Classe responsável por manipular e disparar eventos
@@ -9,6 +10,7 @@ using System.Timers;
     Use: b to buy a Helper.
     Use: 1 to see Stats.
     Use: 2 to see Helpers to buy.
+    Use: 3 to see Upgrade from a específic Helper
 
 **/
 
@@ -69,13 +71,17 @@ public class Idlegfw
                     "======================",
                 resourceManager.coins,
                 resourceManager.maxCoins,
-                app.game.currentProductionValue,
                 app.game.resourceGeneratedPerClick,
+                app.game.currentProductionValue,
                 app.game.helpers.Count
                 );
 
             else if (Console.ReadKey(true).KeyChar == '2')               
                 app.helperManager.DebugerHelpers();
+
+            else if (Console.ReadKey(true).KeyChar == '3')
+                BuyAUpgrade();
+
         }
     }
 
@@ -126,6 +132,19 @@ public class Idlegfw
         Console.WriteLine("Coins: {0} | Clicks: {1} ", resourceManager.coins, app.totalAmountOfClicks);       
     }
     
+    /**
+        Metodo responsável por fazer upgrade em helper
+        Se existir recurso suficiente, chamar OnUpgrade em Helper.
+    */
+    void OnUpgrade(Helper helper)
+    {
+        if(resourceManager.Spend(helper.upgrade.buyCost))
+        {
+            helper.OnUpgrade(helper.upgrade);
+        }
+    }
+
+    // ============== metodos temporarios para seguir o fluxo
     void BuyAHelper()
     {
         Console.WriteLine("Choose a helper:");
@@ -138,16 +157,26 @@ public class Idlegfw
             this.OnItemBought(app.helperManager.helpers[helperId]);
     }
 
-    /**
-        Metodo responsável por fazer upgrade em helper
-        Se existir recurso suficiente, chamar OnUpgrade em Helper.
-    */
-    void OnUpgrade(Helper helper)
+    void BuyAUpgrade()
     {
-        if(resourceManager.Spend(helper.upgrade.buyCost))
-        {
-            helper.OnUpgrade(helper.upgrade);
+        Console.WriteLine("Chosse a helper to upgrade:");
+
+        ConsoleKeyInfo UserInput = Console.ReadKey();
+        int helperId = int.Parse(UserInput.KeyChar.ToString());
+        
+        //Console.WriteLine("HelperId: {0}\nHelpers List Count: {1}", helperId, app.game.helpers.Count);
+
+        Helper helper = app.game.helpers[helperId];
+
+        if (helper == null) {
+            Console.WriteLine("No Helper Found!");
+            return;
         }
+        
+        //h.upgrade.DebugUpgrade();                
+        this.OnUpgrade(helper);
     }
+
+    // =============
 
 }

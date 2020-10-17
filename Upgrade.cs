@@ -23,6 +23,16 @@ public class Upgrade
         this.buyCost = buyCost;
     }
 
+    public void DebugUpgrade ()
+    {
+        Console.WriteLine(
+            "Name: " + this.name +
+            "\nDesc: " + this.desc +
+            "\nEffect Value: " + this.effect +
+            "\nBuy Cost: " + this.buyCost
+        );
+    }
+
     public Upgrade(bool unlocked)
     {
         this.unlocked = unlocked;
