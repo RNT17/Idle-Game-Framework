@@ -3,14 +3,14 @@ using System;
 // Same as Buildings
 public class Helper 
 {
-    public int id = 0;
+    public int id = 1;
     public string name = "unnamed helper";
     public string description = "Generic helper that produces resources";
-    public int baseCost = 10; //how much it costs initially
+    public int baseCost = 10;
     public int productionValue = 1; //how much it produces after each iteration
-    public int buyPrice = 10; //baseCost;
+    public int buyPrice = 10;
     public bool isUnique = false;        
-    public int level = 1;
+    public int level = 0;
     public int quantity = 0;
     public Upgrade upgrade;
 
@@ -20,7 +20,6 @@ public class Helper
         int baseCost = 10, 
         int productionValue = 1)
     {
-        this.id++;
         this.name = name;
         this.description = description;
         this.baseCost = baseCost;
@@ -42,9 +41,8 @@ public class Helper
         this.quantity++;
         this.buyPrice = this.CalculatePrice();
 
-        // Acredito que não seja o melhor local pra fazer isso.        
-        this.level++; // Tratando level como item comprado ?
-        upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
+        // Esse é o melhor local pra fazer isso?
+        OnLevelUp();
 
         //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
         //var audio = new Audio(this.sounds.OnItemBought); //play audio of being bought
@@ -62,7 +60,8 @@ public class Helper
 
     public void OnLevelUp ()
     {
-        Console.WriteLine("Idle Game Framework: Function not implemented");
+        this.level++; // Tratando level como item comprado ?
+        upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
     }
 
     /*
@@ -80,12 +79,19 @@ public class Helper
 
         productionValue += upgrade.effect;
         Console.WriteLine("Upgraded sucessfull!");
-    }
+    }   
 
-    public void OnUpgrade()
+    int CalculatePrice ()
     {
-
+        if (this.quantity == 0)
+            return this.baseCost;
+        var multiplier = 1.09; //TODO: Move this to a global    
+        var price = this.baseCost * Math.Pow(multiplier, this.quantity);
+        
+        return (int) Math.Ceiling(price); //The Math.ceil() function returns the smallest integer greater than or equal to a given number.
     }
+
+    // ==== Métodos não fixos ou que podem deixar de existir ==== //
 
     public void DebugHelper ()
     {
@@ -97,16 +103,6 @@ public class Helper
         "\nQuantity: " + this.quantity +
         "\nLevel: " + this.level +
         "\nProductionValue: " + this.productionValue);
-    }
-
-    int CalculatePrice ()
-    {
-        if (this.quantity == 0)
-            return this.baseCost;
-        var multiplier = 1.09; //TODO: Move this to a global    
-        var price = this.baseCost * Math.Pow(multiplier, this.quantity);
-        
-        return (int) Math.Ceiling(price); //The Math.ceil() function returns the smallest integer greater than or equal to a given number.
     }
 
 }

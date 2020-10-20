@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class HelperManager
 {
     public int currentProductionValue = 0;
-    public List<Helper> helpers;
-    
+    public List<Helper> helpers = new List<Helper>();
+
     /**
      * This function should load and create helpers,
      * then add them to the helper list.
@@ -13,8 +13,6 @@ public class HelperManager
      */
     public void InitHelpers()
     {
-        helpers = new List<Helper>();
-
         Helper playerCharacter = new Helper(
             "Hero", "A Brave Hero", 10, 1
         );
@@ -46,7 +44,7 @@ public class HelperManager
         foreach (Helper helper in helpers)
         {
             int value = 0;
-            if (helper.quantity >= 0)
+            if (helper.quantity >= 1)
                 value = helper.productionValue * helper.quantity;
 
             acumulator += value;
@@ -61,16 +59,24 @@ public class HelperManager
      * Calculates the total production value for a specific helper 
      * @param {string} name 
      */
-    int CalculateTotalProductionByHelperName(string name)
+    public int CalculateTotalProductionByHelperName(string name)
     {
-        // //return player.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
-        // return this.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
-        //     var value = 0;
-        //     if (helper.quantity >= 1)
-        //         value = helper.productionValue * helper.quantity;
-        //     return accumulator += value;
-        // }, 0);
-        return 0;
+        var acumulator = 0;
+
+        foreach (var helper in helpers)
+        {
+            var value = 0;
+            if (helper.name == name)
+            {
+                if (helper.quantity >= 1)
+                    value = helper.productionValue * helper.quantity;
+            }
+            acumulator += value;
+        }
+
+        this.currentProductionValue = acumulator;
+
+        return this.currentProductionValue;
     }
 
     /**
@@ -78,7 +84,7 @@ public class HelperManager
      * the provided ID.
      * @param {int} id 
      */
-    bool HasHelperWithId (int id) 
+    public bool HasHelperWithId (int id) 
     {
         var has = false;
         if (this.helpers.Count >= 1)
@@ -117,6 +123,8 @@ public class HelperManager
         // }, 0);
         return 0;
     }
+
+    // ==== Métodos não fixos ou que podem deixar de existir ==== //
 
     public void DebugerHelpers()
     {
