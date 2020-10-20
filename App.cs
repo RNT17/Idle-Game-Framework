@@ -6,8 +6,21 @@ public class App
     public HelperManager helperManager { get; set; }
     public AchievementManager achievementManager;
     public int totalAmountOfClicks;
+
+    private static App instance = null;
+
+    public static App Instance 
+    {
+        get
+        {
+            if (instance == null)
+                instance = new App();
+
+                return instance;
+        }
+    }
     
-    public App()
+    private App()
     {
         Console.WriteLine("App Was Created!");
 

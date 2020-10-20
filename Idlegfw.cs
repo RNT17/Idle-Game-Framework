@@ -18,7 +18,7 @@ public class Idlegfw
 {
     ResourceManager resourceManager = new ResourceManager();       
     
-    App app;
+    App app = App.Instance;
     
     // bool isUpdating = false;
 
@@ -30,7 +30,7 @@ public class Idlegfw
 
     public Idlegfw()
     {
-        app = new App();
+        //app = new App();
 
         aTimer = new Timer(1000);
         aTimer.Elapsed += FixedUpdate;
@@ -61,7 +61,8 @@ public class Idlegfw
                     "Use: a to Produce Currencies.\n" +
                     "Use: b to buy a Helper.\n" +
                     "Use: 1 to see Stats\n" +
-                    "Use: 2 to see Helpers to by\n" 
+                    "Use: 2 to see Helpers to by\n" +
+                    "Use: 3 to see Upgrade from a específic Helper\n"
                 );
 
             else if (Console.ReadKey(true).KeyChar == '1')
@@ -144,7 +145,7 @@ public class Idlegfw
         }
     }
 
-    // ============== metodos temporarios para seguir o fluxo
+    // ==== Métodos não fixos ou que podem deixar de existir ==== //
     void BuyAHelper()
     {
         Console.WriteLine("Choose a helper:");
@@ -161,6 +162,8 @@ public class Idlegfw
     void BuyAUpgrade()
     {
         Console.WriteLine("Chosse a helper to upgrade:");
+
+        // Listar Helpers com Id
 
         ConsoleKeyInfo UserInput = Console.ReadKey();
         int helperId = int.Parse(UserInput.KeyChar.ToString());
