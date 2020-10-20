@@ -59,7 +59,7 @@ public class HelperManager
      * Calculates the total production value for a specific helper 
      * @param {string} name 
      */
-    public int CalculateTotalProductionByHelperName(string name)
+    public int CalculateTotalProductionByHelperName (string name)
     {
         var acumulator = 0;
 
@@ -137,7 +137,7 @@ public class HelperManager
             helper.DebugHelper();
 
             Console.WriteLine(
-                "======================\n"
+                "============================================\n"
             );
         }
     }

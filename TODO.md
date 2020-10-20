@@ -7,7 +7,7 @@ This document keeps track of what must be done and in which order.
 - [x] Implement basic image representation for helpers;
 - [x] Implementar basic class OnUpgrade em helpers;
 - [x] Create Xunit Teste and Game Tests in Upgrade logic;
-- [ ] Convert Class App to a Singleton;
+- [x] Convert Class App to a Singleton;
 - [ ] Create a UIManager;
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);

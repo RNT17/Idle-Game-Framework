@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
 public class Idlegfw
 {
-    ResourceManager resourceManager = new ResourceManager();       
+    //ResourceManager resourceManager = new ResourceManager();       
     
     App app = App.Instance;
     
@@ -66,16 +66,17 @@ public class Idlegfw
                 );
 
             else if (Console.ReadKey(true).KeyChar == '1')
-                Console.WriteLine(
-                    "======================\n"+
-                    "Coins: {0}\nMax Cois: {1}\nResource Generated Per Click: {2}\nTotal Production Value: {3}\nHelpers: {4}\n"+
-                    "======================",
-                resourceManager.coins,
-                resourceManager.maxCoins,
-                app.game.resourceGeneratedPerClick,
-                app.game.currentProductionValue,
-                app.game.helpers.Count
-                );
+                UiManager.ShowOptions();
+                // Console.WriteLine(
+                //     "======================\n"+
+                //     "Coins: {0}\nMax Cois: {1}\nResource Generated Per Click: {2}\nTotal Production Value: {3}\nHelpers: {4}\n"+
+                //     "======================",
+                // app.resourceManager.coins,
+                // app.resourceManager.maxCoins,
+                // app.game.resourceGeneratedPerClick,
+                // app.game.currentProductionValue,
+                // app.game.helpers.Count
+                // );
 
             else if (Console.ReadKey(true).KeyChar == '2')               
                 app.helperManager.DebugerHelpers();
@@ -97,14 +98,14 @@ public class Idlegfw
 
     void updateLogic () 
     {
-        resourceManager.Produce(app.game.currentProductionValue);
+        app.resourceManager.Produce(app.game.currentProductionValue);
     }
 
     void OnItemBought(Helper helper)
     {
-        if(resourceManager.Spend(helper.buyPrice))
+        if(app.resourceManager.Spend(helper.buyPrice))
         {
-            OnNotifyAchievement?.Invoke(resourceManager, new MyEventArs(MyEventArs.SpendResource, helper.buyPrice)); // Spend Resource
+            OnNotifyAchievement?.Invoke(app.resourceManager, new MyEventArs(MyEventArs.SpendResource, helper.buyPrice)); // Spend Resource
 
             if (app.game != null) 
             {
@@ -122,7 +123,7 @@ public class Idlegfw
 
     void PlayAreaOnClick(object sender, EventArgs e)
     {
-        resourceManager.Produce(app.game.resourceGeneratedPerClick);
+        app.resourceManager.Produce(app.game.resourceGeneratedPerClick);
         app.totalAmountOfClicks++;       
         UpdateCoinsCount();
     }
@@ -130,7 +131,7 @@ public class Idlegfw
     void UpdateCoinsCount()
     {
         //UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
-        Console.WriteLine("Coins: {0} | Clicks: {1} ", resourceManager.coins, app.totalAmountOfClicks);       
+        Console.WriteLine("Coins: {0} | Clicks: {1} ", app.resourceManager.coins, app.totalAmountOfClicks);       
     }
     
     /**
@@ -139,7 +140,7 @@ public class Idlegfw
     */
     void OnUpgrade(Helper helper)
     {
-        if(resourceManager.Spend(helper.upgrade.buyCost))
+        if(app.resourceManager.Spend(helper.upgrade.buyCost))
         {
             helper.OnUpgrade(helper.upgrade);
         }

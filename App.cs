@@ -6,6 +6,8 @@ public class App
     public HelperManager helperManager { get; set; }
     public AchievementManager achievementManager;
     public int totalAmountOfClicks;
+    public ResourceManager resourceManager;
+    public UiManager uiManager;
 
     private static App instance = null;
 
@@ -24,12 +26,16 @@ public class App
     {
         Console.WriteLine("App Was Created!");
 
-        game = new Game();
-        
+        game = new Game();        
+        resourceManager = new ResourceManager();
+
         helperManager = new HelperManager();
         helperManager.InitHelpers();
 
         achievementManager = new AchievementManager();
         achievementManager.InitAchievement();
+
+        uiManager = new UiManager();
+
     }
 }
