@@ -40,51 +40,8 @@ public class Idlegfw
         OnClickEventEnter += PlayAreaOnClick;
         OnNotifyAchievement += app.achievementManager.OnNotity;
 
+
         UserInput();
-    }
-
-    void UserInput()
-    {
-        Console.WriteLine("Press the Ctrl + C to exit the program at any time or h to see helper... ");
-        while (true) 
-        {
-            if (Console.ReadKey(true).KeyChar == 'a') {
-                OnClickEventEnter?.Invoke(this, EventArgs.Empty);
-                OnNotifyAchievement?.Invoke(app, new MyEventArs(MyEventArs.AmountOfClicks, app.totalAmountOfClicks));
-            }
-
-            else if (Console.ReadKey(true).KeyChar == 'b')
-                BuyAHelper();
-
-            else if (Console.ReadKey(true).KeyChar == 'h')
-                Console.WriteLine(
-                    "Use: a to Produce Currencies.\n" +
-                    "Use: b to buy a Helper.\n" +
-                    "Use: 1 to see Stats\n" +
-                    "Use: 2 to see Helpers to by\n" +
-                    "Use: 3 to see Upgrade from a específic Helper\n"
-                );
-
-            else if (Console.ReadKey(true).KeyChar == '1')
-                UiManager.ShowOptions();
-                // Console.WriteLine(
-                //     "======================\n"+
-                //     "Coins: {0}\nMax Cois: {1}\nResource Generated Per Click: {2}\nTotal Production Value: {3}\nHelpers: {4}\n"+
-                //     "======================",
-                // app.resourceManager.coins,
-                // app.resourceManager.maxCoins,
-                // app.game.resourceGeneratedPerClick,
-                // app.game.currentProductionValue,
-                // app.game.helpers.Count
-                // );
-
-            else if (Console.ReadKey(true).KeyChar == '2')               
-                app.helperManager.DebugerHelpers();
-
-            else if (Console.ReadKey(true).KeyChar == '3')
-                BuyAUpgrade();
-
-        }
     }
 
     void FixedUpdate(object sender, ElapsedEventArgs e)
@@ -147,6 +104,50 @@ public class Idlegfw
     }
 
     // ==== Métodos não fixos ou que podem deixar de existir ==== //
+
+    void UserInput()
+    {
+        ConsoleKeyInfo cki;
+        // Prevent example from ending if CTL+C is pressed.
+        Console.TreatControlCAsInput = true;
+
+        string quit = "\nType h to Help.\n";
+        Console.Write(quit);
+        Console.WriteLine("Press the Escape (Esc) key to quit: \n");
+        
+        int read;
+        do 
+        {
+            cki = Console.ReadKey();
+            read = Console.Read();
+
+            string ch = cki.Key.ToString(); 
+            //try {
+
+                if (ch == "A") {
+                    OnClickEventEnter?.Invoke(this, EventArgs.Empty);
+                    OnNotifyAchievement?.Invoke(app, new MyEventArs(MyEventArs.AmountOfClicks, app.totalAmountOfClicks));
+                }
+                else if (ch == "A")
+                    BuyAHelper();
+                else if (ch == "H")
+                    UiManager.Status();
+                else if (ch == "1")
+                    UiManager.ShowOptions();
+                else if (ch == "2")               
+                    app.helperManager.DebugerHelpers();
+                else if (ch == "3")
+                    BuyAUpgrade();
+            //}
+            // catch (OverflowException e)
+            // {
+            //     Console.WriteLine("{0} Value read = {1}.", e.Message, read);
+            //     Console.WriteLine(quit);
+            // } 
+
+        } while (cki.Key != ConsoleKey.Escape);
+    }
+
     void BuyAHelper()
     {
         Console.WriteLine("Choose a helper:");
