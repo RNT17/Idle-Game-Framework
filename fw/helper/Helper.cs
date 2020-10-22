@@ -44,7 +44,7 @@ public class Helper
         this.buyPrice = this.CalculatePrice();
 
         // Esse é o melhor local pra fazer isso?
-        //OnLevelUp();
+        OnLevelUp();
 
         //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
         //var audio = new Audio(this.sounds.OnItemBought); //play audio of being bought
@@ -71,16 +71,17 @@ public class Helper
         Chamar OnUpgrade de Helper. Aqui é feita a verificação para saber se Upgrade está unlocked para
         ativar seu efeito em Helper. Ex: Upgrade tem o poder de maximizar a produção de recurso em x%.
     */
-    public void OnUpgrade(Upgrade upgrade)
+    public bool OnUpgrade(Upgrade upgrade)
     {
         if (!upgrade.unlocked)
         {
             Console.WriteLine("Upgrade is locked!\nRequired level: {0}", upgrade.requiredLevel);
-            return;
+            return false;
         }
 
         productionValue += upgrade.effect;
         Console.WriteLine("Upgraded sucessfull!");
+        return true;
     }   
 
     int CalculatePrice ()

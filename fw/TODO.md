@@ -8,7 +8,9 @@ This document keeps track of what must be done and in which order.
 - [x] Implementar basic class OnUpgrade em helpers;
 - [x] Create Xunit Teste and Game Tests in Upgrade logic;
 - [x] Convert Class App to a Singleton;
-- [ ] Create a UIManager;
+- [x] Create a UIManager;
+- [ ] Verificar por que da erro ao comprar helper por id
+- [ ] Listar Helpers quando for comprar 
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);
 - [ ] Create basic status to improve resource production by X%.
@@ -56,17 +58,23 @@ Se o jogador tem recurso, então OnUpgrade/OnLevelUp é chamado no helper. Funç
 
 Idlegfw.cs is responsible for handling events fired by the Game, loading configs and saving/loading the state of the game.
 
-Game.js is responsible for keeping the current status of the player and its resources/helpers.
+Game.cs is responsible for keeping the current status of the player and its resources/helpers.
 
 Player Actions:
-Click to generate resources
-Buy Resources
+
+    Click to generate resources;
+    Buy Resources (Helpers/Upgrades);
+    Upgrade Helper.
+
+Game Actions:
+
+    Achievements.
 
 ###  Status
 
 In short: Status are temporary effects that affect resource generation. A status is a generic and broad concept. It can be anything, really. But a few points must be noted.
 Sample Status:
-```js
+```cs
 var options = {
     expireTime: 60, // time in seconds
     effectType: positive, // if it will increase or decrease the production
@@ -104,10 +112,3 @@ Upgrade:
     Efeito: Aumenta todo ouro encontrado em 25%
     Valor do efeito: 25 (100%)
     Custo: 500 Coins
-
-## todo
-Aplicar upgrade no game:
-criar um helper com um upgrade
-incrementar helper até este ficar com level suficiente para, dispara um evento?
-fazer alguem manipular esse evento para fazer unlock no upgrade
-comprar o upgrade e verificar seu efeito;
