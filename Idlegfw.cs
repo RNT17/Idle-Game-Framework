@@ -111,39 +111,30 @@ public class Idlegfw
         // Prevent example from ending if CTL+C is pressed.
         Console.TreatControlCAsInput = true;
 
-        string quit = "\nType h to Help.\n";
-        Console.Write(quit);
+        Console.WriteLine("\nType h to Help.");
         Console.WriteLine("Press the Escape (Esc) key to quit: \n");
         
-        int read;
         do 
         {
             cki = Console.ReadKey();
-            read = Console.Read();
 
             string ch = cki.Key.ToString(); 
-            //try {
-
-                if (ch == "A") {
-                    OnClickEventEnter?.Invoke(this, EventArgs.Empty);
-                    OnNotifyAchievement?.Invoke(app, new MyEventArs(MyEventArs.AmountOfClicks, app.totalAmountOfClicks));
-                }
-                else if (ch == "A")
-                    BuyAHelper();
-                else if (ch == "H")
-                    UiManager.Status();
-                else if (ch == "1")
-                    UiManager.ShowOptions();
-                else if (ch == "2")               
-                    app.helperManager.DebugerHelpers();
-                else if (ch == "3")
-                    BuyAUpgrade();
-            //}
-            // catch (OverflowException e)
-            // {
-            //     Console.WriteLine("{0} Value read = {1}.", e.Message, read);
-            //     Console.WriteLine(quit);
-            // } 
+            //Console.WriteLine(ch);
+            
+            if (ch == "A") {
+                OnClickEventEnter?.Invoke(this, EventArgs.Empty);
+                OnNotifyAchievement?.Invoke(app, new MyEventArs(MyEventArs.AmountOfClicks, app.totalAmountOfClicks));
+            }
+            else if (ch == "B")
+                BuyAHelper();
+            else if (ch == "H")
+                UiManager.Status();
+            else if (ch == "D1")
+                UiManager.ShowOptions();
+            else if (ch == "D2")               
+                app.helperManager.DebugerHelpers();
+            else if (ch == "D3")
+                BuyAUpgrade();           
 
         } while (cki.Key != ConsoleKey.Escape);
     }
@@ -157,8 +148,11 @@ public class Idlegfw
 
         Console.WriteLine(helperId);
         //if (app.helperManager.helpers.Count > 0)
-        if (!app.game.HasHelperWithId(helperId))
-            this.OnItemBought(app.helperManager.helpers[helperId]);
+        if (!app.helperManager.HasHelperWithId(helperId))
+            //this.OnItemBought(app.helperManager.helpers[helperId]);
+            this.OnItemBought(app.helperManager.HelperById(helperId));
+        else 
+            Console.WriteLine("No Helper with this id ({0})", helperId);
     }
 
     void BuyAUpgrade()

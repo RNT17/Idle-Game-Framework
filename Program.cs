@@ -4,6 +4,7 @@ class Program
     public static void Main(string[] args)
     {
         Idlegfw idleGame = new Idlegfw();        
+        //ReadKeyExample();
         //ReadKeyConsoleKeyInfoExample();
     }
 
@@ -29,7 +30,7 @@ class Program
         } while (cki.Key != ConsoleKey.Escape);
     }
 
-    public void ReadKeyExample()
+    public static void ReadKeyExample()
     {
         string m1 = "\nType a string of text then press Enter. " +
                 "Type '+' anywhere in the text to quit:\n";

@@ -15,11 +15,13 @@ public class Helper
     public Upgrade upgrade;
 
     public Helper (
+        int id = 0,
         string name = "unnamed helper", 
         string description = "Generic helper that produces resources", 
         int baseCost = 10, 
         int productionValue = 1)
     {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.baseCost = baseCost;
@@ -42,7 +44,7 @@ public class Helper
         this.buyPrice = this.CalculatePrice();
 
         // Esse é o melhor local pra fazer isso?
-        OnLevelUp();
+        //OnLevelUp();
 
         //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
         //var audio = new Audio(this.sounds.OnItemBought); //play audio of being bought
@@ -95,7 +97,9 @@ public class Helper
 
     public void DebugHelper ()
     {
-        Console.WriteLine("Name: " + this.name +
+        Console.WriteLine(
+        "Id: " + this.id +
+        "\nName: " + this.name +
         "\nDescription: " + this.description +
         "\nBase Cost: " + this.baseCost +
         "\nBuy Price: " + this.buyPrice +

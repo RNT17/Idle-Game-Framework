@@ -14,18 +14,18 @@ public class HelperManager
     public void InitHelpers()
     {
         Helper playerCharacter = new Helper(
-            "Hero", "A Brave Hero", 10, 1
+            1, "Hero", "A Brave Hero", 10, 1
         );
         playerCharacter.upgrade = new Upgrade("Copo de Cerveja", "Aumenta o DPS de Ivan, O lutador em 100%", 100);
 
         playerCharacter.isUnique = true;
 
         Helper woodenSword = new Helper(
-            "WoodenSword", "A Wooden Sword", 20, 2
+            2, "WoodenSword", "A Wooden Sword", 20, 2
         );
 
         Helper medicine = new Helper(
-            "Medicine", "A super strong medicine that heals all wounds", 30, 5
+            3, "Medicine", "A super strong medicine that heals all wounds", 30, 5
         );
 
         helpers.Add(playerCharacter);
@@ -113,6 +113,16 @@ public class HelperManager
                 count++;
         }
         return count;
+    }
+
+    public Helper HelperById(int id)
+    {
+        foreach (var helper in helpers)
+        {
+            if (helper.id == id)
+                return helper;
+        }
+        return null;
     }
 
     //returns the total amount that helpers of same ID will produce
