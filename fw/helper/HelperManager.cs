@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 public class HelperManager
 {
@@ -31,6 +33,11 @@ public class HelperManager
         helpers.Add(playerCharacter);
         helpers.Add(woodenSword);
         helpers.Add(medicine);
+    }
+    
+    public void InitHelpers(bool json)
+    {
+        Helper helpers = JsonSerializer.Deserialize<Helper>(jsonHelpes());
     }
 
     /**
@@ -136,7 +143,7 @@ public class HelperManager
 
     // ==== Métodos não fixos ou que podem deixar de existir ==== //
 
-    public void DebugerHelpers()
+    public void DebugerHelpers(bool debugToBuy = false)
     {
         foreach (var helper in helpers)
         {
@@ -144,11 +151,29 @@ public class HelperManager
                 "Helpers: \n"
             );
             
-            helper.DebugHelper();
+            if (debugToBuy) helper.DebugHelperToBuy(); else helper.DebugHelper();
 
             Console.WriteLine(
                 "============================================\n"
             );
         }
+    }
+
+    string jsonHelpes()
+    {
+        return "{" +
+        "id: 1" + 
+        "name: unnamed helper" + 
+        "description: Generic helper that produces resources" + 
+        "baseCost: 10" +
+        "productionValue: 1" +
+        "} ," +
+        "{" +
+        "id: 2" +
+        "name: Hero" + 
+        "description: Generic helper that produces resources" + 
+        "baseCost: 11" +
+        "productionValue: 2" +
+        "}";
     }
 }

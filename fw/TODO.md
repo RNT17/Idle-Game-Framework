@@ -9,8 +9,8 @@ This document keeps track of what must be done and in which order.
 - [x] Create Xunit Teste and Game Tests in Upgrade logic;
 - [x] Convert Class App to a Singleton;
 - [x] Create a UIManager;
-- [ ] Verificar por que da erro ao comprar helper por id
-- [ ] Listar Helpers quando for comprar 
+- [x] Verificar por que da erro ao comprar helper por id
+- [x] Listar Helpers quando for comprar 
 - [ ] Make class HelperManager init the Helpers from a file;
 - [ ] Implement basic audio on events (OnItemBought, attack (click), etc);
 - [ ] Create basic status to improve resource production by X%.

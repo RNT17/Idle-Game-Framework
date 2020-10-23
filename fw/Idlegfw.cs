@@ -16,12 +16,9 @@ using System.Collections.Generic;
 
 public class Idlegfw
 {
-    //ResourceManager resourceManager = new ResourceManager();       
-    
+   
     App app = App.Instance;
     
-    // bool isUpdating = false;
-
     private static Timer aTimer;
 
     event EventHandler OnClickEventEnter;
@@ -30,8 +27,6 @@ public class Idlegfw
 
     public Idlegfw()
     {
-        //app = new App();
-
         aTimer = new Timer(1000);
         aTimer.Elapsed += FixedUpdate;
         aTimer.AutoReset = true;
@@ -39,7 +34,6 @@ public class Idlegfw
 
         OnClickEventEnter += PlayAreaOnClick;
         OnNotifyAchievement += app.achievementManager.OnNotity;
-
 
         UserInput();
     }
@@ -103,6 +97,7 @@ public class Idlegfw
         }
     }
 
+    
     // ==== Métodos não fixos ou que podem deixar de existir ==== //
 
     void UserInput()
@@ -119,7 +114,6 @@ public class Idlegfw
             cki = Console.ReadKey();
 
             string ch = cki.Key.ToString(); 
-            //Console.WriteLine(ch);
             
             if (ch == "A") {
                 OnClickEventEnter?.Invoke(this, EventArgs.Empty);
@@ -142,14 +136,12 @@ public class Idlegfw
     void BuyAHelper()
     {
         Console.WriteLine("Choose a helper:");
+        app.helperManager.DebugerHelpers(true);
 
         ConsoleKeyInfo UserInput = Console.ReadKey();
         int helperId = int.Parse(UserInput.KeyChar.ToString());
 
-        Console.WriteLine(helperId);
-        //if (app.helperManager.helpers.Count > 0)
-        if (!app.helperManager.HasHelperWithId(helperId))
-            //this.OnItemBought(app.helperManager.helpers[helperId]);
+        if (app.helperManager.HasHelperWithId(helperId))
             this.OnItemBought(app.helperManager.HelperById(helperId));
         else 
             Console.WriteLine("No Helper with this id ({0})", helperId);

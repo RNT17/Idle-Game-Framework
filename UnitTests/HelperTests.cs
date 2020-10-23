@@ -15,15 +15,14 @@
 //     }
 
 //     /*
-//         One Helper id is 1
+//         One Default Helper id is zero
 //     */
 //     [Fact] 
 //     public void OneHelperId()
 //     {
-//         var expected = 1;
+//         var expected = 0;
 //         var helper = new Helper();
 //         var result = helper.id;
 //         Assert.Equal(expected, result);
 //     }
-
 // }

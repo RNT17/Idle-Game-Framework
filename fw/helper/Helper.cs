@@ -56,14 +56,14 @@ public class Helper
     
     public void OnItemSold ()
     {
-        Console.WriteLine("Idle Game Framework: Function not implemented");
-        
+        Console.WriteLine("Idle Game Framework: Function not implemented"); 
     }
 
     public void OnLevelUp ()
     {
         this.level++; // Tratando level como item comprado ?
-        upgrade.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
+
+        upgrade?.SetUnlocked(level); // Usando level para fazer unlock de upgrade para permitir upgrade ?
     }
 
     /*
@@ -94,6 +94,13 @@ public class Helper
         return (int) Math.Ceiling(price); //The Math.ceil() function returns the smallest integer greater than or equal to a given number.
     }
 
+    bool HasUpgrade()
+    {
+        if (upgrade == null)
+            return false;
+        return true;
+    }
+
     // ==== Métodos não fixos ou que podem deixar de existir ==== //
 
     public void DebugHelper ()
@@ -107,6 +114,16 @@ public class Helper
         "\nIs Unique: " + this.isUnique +
         "\nQuantity: " + this.quantity +
         "\nLevel: " + this.level +
+        "\nProductionValue: " + this.productionValue);
+    }
+
+    public void DebugHelperToBuy()
+    {
+        Console.WriteLine(
+        "Id: " + this.id +
+        "\nName: " + this.name +
+        "\nDescription: " + this.description +
+        "\nBuy Price: " + this.buyPrice +
         "\nProductionValue: " + this.productionValue);
     }
 
