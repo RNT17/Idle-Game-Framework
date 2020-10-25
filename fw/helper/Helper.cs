@@ -4,15 +4,30 @@ using System;
 public class Helper 
 {
     public int id = 1;
+    public int Id { get; set; }
     public string name = "unnamed helper";
+    public string Name { get; set; }
     public string description = "Generic helper that produces resources";
+    public string Description { get; set; }
     public int baseCost = 10;
+    public int BaseCost { get; set; }
     public int productionValue = 1; //how much it produces after each iteration
+    public int ProductionValue { get; set; }
     public int buyPrice = 10;
+    public int BuyPrice { get; set; }
     public bool isUnique = false;        
+    public bool IsUnique { get; set; }
     public int level = 0;
+    public int Level { get; set; }
     public int quantity = 0;
+    public int Quantity { get; set; }
     public Upgrade upgrade;
+    public Upgrade Upgrade { get; set; }
+
+    public Helper()
+    {
+        
+    }
 
     public Helper (
         int id = 0,
@@ -73,13 +88,13 @@ public class Helper
     */
     public bool OnUpgrade(Upgrade upgrade)
     {
-        if (!upgrade.unlocked)
+        if (!upgrade.Unlocked)
         {
-            Console.WriteLine("Upgrade is locked!\nRequired level: {0}", upgrade.requiredLevel);
+            Console.WriteLine("Upgrade is locked!\nRequired level: {0}", upgrade.RequiredLevel);
             return false;
         }
 
-        productionValue += upgrade.effect;
+        productionValue += upgrade.Effect;
         Console.WriteLine("Upgraded sucessfull!");
         return true;
     }   

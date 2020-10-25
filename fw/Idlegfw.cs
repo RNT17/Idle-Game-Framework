@@ -1,6 +1,5 @@
 using System;
 using System.Timers;
-using System.Collections.Generic;
 
 /**
     Classe responsável por manipular e disparar eventos
@@ -33,6 +32,7 @@ public class Idlegfw
         aTimer.Enabled = true;
 
         OnClickEventEnter += PlayAreaOnClick;
+        
         OnNotifyAchievement += app.achievementManager.OnNotity;
 
         UserInput();
@@ -41,15 +41,9 @@ public class Idlegfw
     void FixedUpdate(object sender, ElapsedEventArgs e)
     {
         //Console.Write("Rodando: {0} ", e.SignalTime);
-
-        updateLogic();
         app.game.CalculateTotalProductionValue();
-        //UpdateCoinsCount();
-    }
-
-    void updateLogic () 
-    {
         app.resourceManager.Produce(app.game.currentProductionValue);
+        //UpdateCoinsCount();
     }
 
     void OnItemBought(Helper helper)
@@ -91,14 +85,14 @@ public class Idlegfw
     */
     void OnUpgrade(Helper helper)
     {
-        if(app.resourceManager.Spend(helper.upgrade.buyCost))
+        if(app.resourceManager.Spend(helper.upgrade.BuyCost))
         {
             helper.OnUpgrade(helper.upgrade);
         }
     }
 
     
-    // ==== Métodos não fixos ou que podem deixar de existir ==== //
+    // ====================== Métodos não fixos ou que podem deixar de existir ====================== //
 
     void UserInput()
     {
@@ -169,6 +163,6 @@ public class Idlegfw
         this.OnUpgrade(helper);
     }
 
-    // =============
+    // ============================================================================================== //
 
 }

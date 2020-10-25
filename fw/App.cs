@@ -30,7 +30,7 @@ public class App
         resourceManager = new ResourceManager();
 
         helperManager = new HelperManager();
-        helperManager.InitHelpers();
+        helperManager.InitHelpers(false);
 
         achievementManager = new AchievementManager();
         achievementManager.InitAchievement();

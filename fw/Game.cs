@@ -6,11 +6,8 @@ public class Game
     public List<Helper> helpers = new List<Helper>();
     public int currentProductionValue = 0; // Acumulado de valor de produção de todos os helpers
     public int resourceGeneratedPerClick = 1; // recurso gerado por click -> TODO: mudar tudo para resourceGeneratedPerClick 
-
     public int buyPrice = 10;
-
     private int baseCost = 10;
-    
     private int quantity = 1;
 
     /**

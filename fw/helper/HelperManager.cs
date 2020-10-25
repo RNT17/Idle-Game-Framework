@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -18,7 +19,7 @@ public class HelperManager
         Helper playerCharacter = new Helper(
             1, "Hero", "A Brave Hero", 10, 1
         );
-        playerCharacter.upgrade = new Upgrade("Copo de Cerveja", "Aumenta o DPS de Ivan, O lutador em 100%", 100);
+        playerCharacter.upgrade = new Upgrade("Copo de Cerveja", "Aumenta o DPS de Hero em 100%", 100);
 
         playerCharacter.isUnique = true;
 
@@ -37,7 +38,33 @@ public class HelperManager
     
     public void InitHelpers(bool json)
     {
-        Helper helpers = JsonSerializer.Deserialize<Helper>(jsonHelpes());
+        Helper playerCharacter = new Helper();
+        playerCharacter.Id = 1;
+        playerCharacter.Name = "Hero";
+        playerCharacter.Description = "A Brave Hero";
+        playerCharacter.BaseCost = 10;
+        playerCharacter.ProductionValue = 1;
+
+        Upgrade upg = new Upgrade();
+        upg.Name = "Copo de Cerveja";
+        upg.Description = "Aumenta o DPS de Hero em 100%";
+        upg.Effect = 100;
+        upg.BuyCost = 10;
+
+        playerCharacter.Upgrade = upg;
+
+        //JsonManager.Serialize<Helper>(playerCharacter, "Helper.json");
+
+        // string path = @"D:\Development Game\Unity\Projects\UTests\UTests\fw\HelpersConfig.json";
+        // if (!File.Exists(path))
+        // {
+        //     Console.WriteLine("File not exists!");
+        //     return; 
+        // }
+        
+        // string readText = File.ReadAllText(path);
+        // Helper h = JsonManager.Deserialize<Helper>(readText);
+        // Console.WriteLine(h.Name);
     }
 
     /**
@@ -159,21 +186,4 @@ public class HelperManager
         }
     }
 
-    string jsonHelpes()
-    {
-        return "{" +
-        "id: 1" + 
-        "name: unnamed helper" + 
-        "description: Generic helper that produces resources" + 
-        "baseCost: 10" +
-        "productionValue: 1" +
-        "} ," +
-        "{" +
-        "id: 2" +
-        "name: Hero" + 
-        "description: Generic helper that produces resources" + 
-        "baseCost: 11" +
-        "productionValue: 2" +
-        "}";
-    }
 }
