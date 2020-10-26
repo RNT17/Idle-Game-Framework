@@ -24,3 +24,5 @@ C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreap
 C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.runtimeconfig.json
 C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\bin\Debug\netcoreapp3.1\UTests.runtimeconfig.dev.json
 C:\Users\grupomateus\Documents\Pasta Pessoal\Projects\UTests\obj\Debug\netcoreapp3.1\UTests.genruntimeconfig.cache
+D:\Development Game\Unity\Projects\UTests\UTests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Development Game\Unity\Projects\UTests\UTests\obj\Debug\netcoreapp3.1\UTests.csproj.CopyComplete

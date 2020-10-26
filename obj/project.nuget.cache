@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RslkcNBnz1CDwbx8ATuJFce5Rl/PPuYk/ehYGTg8xKq8RKF0Jxc0AluX66KenzUPJwkWzlOsfALhFz8iSDoiOQ==",
+  "dgSpecHash": "7gujOpbk4rz0M3yx/OrkGhHhNIIDkLicuv+maT8kMRgQhJoFkqwMsnuGdd8cw8XEwSIuKm8ajPGd9XWh9v6oNA==",
   "success": true,
   "projectFilePath": "D:\\Development Game\\Unity\\Projects\\UTests\\UTests\\UTests.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\RenatoSantos\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,37 +1,39 @@
-
 {
-    "HelperList" :
-    [
+    "JsonValues": {
+        "id": "MyID",
+        "HelperList" :
         {
-            "Id": 1,
-            "Name": "Hero",
-            "Description": "A Brave Hero",
-            "BaseCost": 10,
-            "ProductionValue": 1,
-            "BuyPrice": 0,
-            "IsUnique": false,
-            "Level": 0,
-            "Quantity": 0,
-            "Upgrade": null
-        },
-        {
-            "Id": 1,
-            "Name": "Hero",
-            "Description": "A Brave Hero",
-            "BaseCost": 10,
-            "ProductionValue": 1,
-            "BuyPrice": 0,
-            "IsUnique": false,
-            "Level": 0,
-            "Quantity": 0,
-            "Upgrade": {
-                "Name": "Copo de Cerveja",
-                "Description": "Aumenta o DPS de Hero em 100%",
-                "Unlocked": false,
-                "RequiredLevel": 10,
-                "Effect": 100,
-                "BuyCost": 10
+            "Helper1": {
+                "Id": 1,
+                "Name": "Hero",
+                "Description": "A Brave Hero",
+                "BaseCost": 10,
+                "ProductionValue": 1,
+                "BuyPrice": 0,
+                "IsUnique": false,
+                "Level": 0,
+                "Quantity": 0,
+                "Upgrade": null
+            },
+            "Helper2": {
+                "Id": 1,
+                "Name": "Hero",
+                "Description": "A Brave Hero",
+                "BaseCost": 10,
+                "ProductionValue": 1,
+                "BuyPrice": 0,
+                "IsUnique": false,
+                "Level": 0,
+                "Quantity": 0,
+                "Upgrade": {
+                    "Name": "Copo de Cerveja",
+                    "Description": "Aumenta o DPS de Hero em 100%",
+                    "Unlocked": false,
+                    "RequiredLevel": 10,
+                    "Effect": 100,
+                    "BuyCost": 10
+                }
             }
         }
-    ]
+    }
 }

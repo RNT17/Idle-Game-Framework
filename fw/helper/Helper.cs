@@ -1,27 +1,38 @@
 using System;
+using Newtonsoft.Json;
 
 // Same as Buildings
 public class Helper 
 {
     public int id = 1;
+    [JsonProperty("id")]
     public int Id { get; set; }
     public string name = "unnamed helper";
+    [JsonProperty("name")]
     public string Name { get; set; }
     public string description = "Generic helper that produces resources";
+    [JsonProperty("description")]
     public string Description { get; set; }
     public int baseCost = 10;
+    [JsonProperty("baseCost")]
     public int BaseCost { get; set; }
     public int productionValue = 1; //how much it produces after each iteration
+    [JsonProperty("produtionValue")]
     public int ProductionValue { get; set; }
     public int buyPrice = 10;
+    [JsonProperty("buyPrice")]
     public int BuyPrice { get; set; }
     public bool isUnique = false;        
+    [JsonProperty("isUnique")]
     public bool IsUnique { get; set; }
     public int level = 0;
+    [JsonProperty("level")]
     public int Level { get; set; }
     public int quantity = 0;
+    [JsonProperty("quantity")]
     public int Quantity { get; set; }
     public Upgrade upgrade;
+    [JsonProperty("upgrade")]
     public Upgrade Upgrade { get; set; }
 
     public Helper()

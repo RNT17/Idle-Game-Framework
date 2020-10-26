@@ -1,11 +1,16 @@
 using System;
+using System.IO;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
 class Program
 {
     public static void Main(string[] args)
     {
-        Idlegfw idleGame = new Idlegfw();        
+        //Idlegfw idleGame = new Idlegfw();        
         //ReadKeyExample();
         //ReadKeyConsoleKeyInfoExample();
+        JsonDeserializer();
     }
 
     public static void ReadKeyConsoleKeyInfoExample()
@@ -64,5 +69,28 @@ class Program
                 Console.WriteLine(m1);
             }
         } while (ch != '+');
+    }
+
+    /*
+        JsonConvert é uma lib de terceiros ()
+    */
+    public static void JsonDeserializer()
+    {
+        string path = @"D:\Development Game\Unity\Projects\UTests\UTests\fw\HelpersConfig.json";
+        if (!File.Exists(path))
+        {
+            Console.WriteLine("File not exists!");
+            return; 
+        }
+        
+        string readText = File.ReadAllText(path);
+        var HelperList = JsonConvert.DeserializeObject<Wrapper>(readText).HelperList;
+        
+        Console.WriteLine("id: " + HelperList.Id);
+        // foreach (KeyValuePair<string, Helper> kvp in HelperList.Helpers)
+        // {
+        //     Console.WriteLine(kvp.Key + " id: " + kvp.Helper.Id);
+        //     Console.WriteLine(kvp.Key + " name: " + kvp.Helper.Name);
+        // }
     }
 }
