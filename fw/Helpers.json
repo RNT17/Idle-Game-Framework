@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1, 
+        "name": "Hero", 
+        "baseCost": 10, 
+        "buyPrice": 10
+    },
+    {
+        "id": 2, 
+        "name": "Another Hero", 
+        "baseCost": 20, 
+        "buyPrice": 100, 
+        "upgrade": {
+            "id": 1, 
+            "name": "Copo de Cerveja", 
+            "Description": "Aumenta o DPS de Hero em 100%"
+        } 
+    }
+]

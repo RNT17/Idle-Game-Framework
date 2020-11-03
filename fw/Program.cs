@@ -3,14 +3,33 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
+class MyUpgrade
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public string description { get; set; }
+}
+
+class MyHelper 
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public int baseCost { get; set; }
+    public int buyPrice { get; set; }
+    public MyUpgrade upgrade { get; set;}
+}
+
 class Program
 {
+
     public static void Main(string[] args)
     {
         //Idlegfw idleGame = new Idlegfw();        
         //ReadKeyExample();
         //ReadKeyConsoleKeyInfoExample();
-        JsonDeserializer();
+        //JsonDeserializerFromFile();
+        // JsonDeserializer();
+        JsonDeserializerHelper();
     }
 
     public static void ReadKeyConsoleKeyInfoExample()
@@ -74,9 +93,49 @@ class Program
     /*
         JsonConvert é uma lib de terceiros ()
     */
+    public static void JsonDeserializerFromFile()
+    {
+        // string path = @"D:\Development Game\Unity\Projects\UTests\UTests\fw\HelpersConfig.json";
+        // if (!File.Exists(path))
+        // {
+        //     Console.WriteLine("File not exists!");
+        //     return; 
+        // }
+        
+        // string readText = File.ReadAllText(path);
+        // var HelperList = JsonConvert.DeserializeObject<Wrapper>(readText).HelperList;
+        
+        // Console.WriteLine("id: " + HelperList.Id);
+        // foreach (KeyValuePair<string, Helper> kvp in HelperList.Helpers)
+        // {
+        //     Console.WriteLine(kvp.Key + " id: " + kvp.Helper.Id);
+        //     Console.WriteLine(kvp.Key + " name: " + kvp.Helper.Name);
+        // }
+    }
+
     public static void JsonDeserializer()
     {
-        string path = @"D:\Development Game\Unity\Projects\UTests\UTests\fw\HelpersConfig.json";
+        //string json = @"['Starcraft','Halo','Legend of Zelda']";
+        string json =
+        @"
+            [
+                {id: 1, name: 'Hero', baseCost: 10, buyPrice: 10},
+                {id: 2, name: 'Another Hero', baseCost: 20, buyPrice: 50, upgrade: {id:1, name: 'Copo de Cerveja', 'Description': 'Aumenta o DPS de Hero em 100%'} },
+            ]
+        ";
+
+        List<MyHelper> mobj = JsonConvert.DeserializeObject<List<MyHelper>>(json);
+
+        foreach (var obj in mobj)
+        {
+            Console.WriteLine("id: {0}\nname: {1}\nbaseCost: {2}\nbuyPrice: {3}", obj.id, obj.name, obj.baseCost, obj.buyPrice);
+            Console.WriteLine("[\nupgrade:\nid: {0}\nname: {1}\ndescription: {2}\n]\n", obj.upgrade?.id, obj.upgrade?.name, obj.upgrade?.description);
+        }
+    }
+
+    public static void JsonDeserializerHelper()
+    {
+        string path = @"D:\Development Game\Unity\Projects\UTests\UTests\fw\Helpers.json";
         if (!File.Exists(path))
         {
             Console.WriteLine("File not exists!");
@@ -84,13 +143,12 @@ class Program
         }
         
         string readText = File.ReadAllText(path);
-        var HelperList = JsonConvert.DeserializeObject<Wrapper>(readText).HelperList;
-        
-        Console.WriteLine("id: " + HelperList.Id);
-        // foreach (KeyValuePair<string, Helper> kvp in HelperList.Helpers)
-        // {
-        //     Console.WriteLine(kvp.Key + " id: " + kvp.Helper.Id);
-        //     Console.WriteLine(kvp.Key + " name: " + kvp.Helper.Name);
-        // }
+        List<MyHelper> HelperList = JsonConvert.DeserializeObject<List<MyHelper>>(readText);
+
+        foreach(var h in HelperList) 
+        {
+            Console.WriteLine("id: {0}\nname: {1}\nbaseCost: {2}\nbuyPrice: {3}", h.id, h.name, h.baseCost, h.buyPrice);
+            Console.WriteLine("[\nupgrade:\nid: {0}\nname: {1}\ndescription: {2}\n]\n", h.upgrade?.id, h.upgrade?.name, h.upgrade?.description);
+        }
     }
 }
